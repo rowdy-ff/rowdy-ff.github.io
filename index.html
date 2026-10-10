@@ -1,622 +1,309 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>晚班收班 Checklist</title>
-<meta name="description" content="青山南京三民晚班收班：邊做邊勾，一鍵複製交班訊息。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="晚班收班 Checklist">
-<meta property="og:description" content="青山南京三民晚班收班：邊做邊勾，一鍵複製交班訊息。">
-<meta property="og:url" content="https://keluoyideal.github.io/chinsansanmin.github.io/">
-<meta property="og:image" content="https://keluoyideal.github.io/chinsansanmin.github.io/preview.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRMacroPad - Colored Push-Button Macros & Live Screens for Windows VR</title>
+    <meta name="description" content="VRMacroPad turns your SteamVR overlay into a customizable macro pad. Push colored buttons, view live mini screens, and control Voicemeeter, OBS, VRChat, Twitch, Spotify, and more. A Stream Deck alternative for VR.">
+    <meta name="keywords" content="VRMacroPad, SteamVR overlay, macro pad, VR macros, OBS macro, Voicemeeter control, VRChat tools, Twitch macro, Spotify control, Stream Deck alternative, Windows VR app, desktop macro app">
+    <meta name="author" content="rowdy-ff">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="VRMacroPad - Colored Push-Button Macros & Live Screens for Windows VR">
+    <meta property="og:description" content="A native SteamVR overlay or desktop window for macros. Control Voicemeeter, OBS, VRChat, Twitch, Spotify with colored buttons and live mini screens.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/rowdy-ff/VRMacroPad">
+    <meta property="og:image" content="https://github.com/rowdy-ff/VRMacroPad/raw/main/icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a2e;
+            line-height: 1.7;
+            padding: 20px 15px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #16213e;
+            margin: 30px 0 15px;
+            line-height: 1.2;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0f3460;
+            margin: 40px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #e94560;
+            display: inline-block;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 25px 0 10px;
+        }
+        p {
+            margin: 12px 0;
+            font-size: 1rem;
+        }
+        a {
+            text-decoration: none;
+            color: #e94560;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            text-align: center;
+            background: #16213e;
+            padding: 40px 25px;
+            border-radius: 16px;
+            margin: 20px 0 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .hero p {
+            color: #d4d8e0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 10px auto;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #e94560;
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 20px 0;
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.6);
+            text-decoration: none;
+            color: white;
+        }
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        .container {
+            background: #ffffff;
+            padding: 35px 35px 45px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        .badge-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        .badge-list li {
+            background: #f0f3f8;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #0f3460;
+            border: 1px solid #d0d8e4;
+        }
+        .step-list {
+            counter-reset: step-counter;
+        }
+        .step-list li {
+            list-style: none;
+            margin: 15px 0;
+            padding-left: 50px;
+            position: relative;
+            font-size: 1rem;
+        }
+        .step-list li::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: -4px;
+            background: #0f3460;
+            color: white;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            text-align: center;
+            padding-top: 7px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .warning {
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        code {
+            background: #1a1a2e;
+            color: #5cffb1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
 </head>
 <body>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
-<style>
-/* Layout: one narrow column, phone-first; sticky progress bar; sections as quiet groups, the generated LINE message is the one framed object */
-:root{
-  --bg:#eef2ee; --surface:#ffffff; --fg:#1f2a24; --muted:#5e6e64; --line:#d5ded7;
-  --accent:#2f6b4a; --accent-soft:#dcebe1; --warn:#b4541a; --warn-soft:#f8e6d9;
-  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
-  --mono:var(--sans);
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#141a16; --surface:#1d2520; --fg:#e4ebe6; --muted:#9aaba0; --line:#2f3a33;
-  --accent:#7cc39a; --accent-soft:#23382b; --warn:#f0a06a; --warn-soft:#3a271b; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#141a16; --surface:#1d2520; --fg:#e4ebe6; --muted:#9aaba0; --line:#2f3a33;
-  --accent:#7cc39a; --accent-soft:#23382b; --warn:#f0a06a; --warn-soft:#3a271b; color-scheme:dark}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.55}
-.wrap{max-width:560px;margin:0 auto;padding:0 16px;padding-block:8px 48px;display:flex;flex-direction:column;gap:22px}
-.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px 10px;border-bottom:1px solid var(--line)}
-.bar-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-h1{font-size:1.3rem;margin:0;text-wrap:balance}
-.count{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--accent);font-size:.95rem}
-.track{height:6px;background:var(--line);border-radius:3px;margin-top:8px;overflow:hidden}
-.fill{height:100%;width:0;background:var(--accent);transition:width .25s}
-.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.meta .full{grid-column:1/-1}
-.lbl{font-size:.8rem;color:var(--muted);letter-spacing:.04em}
-label.f{display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--muted);letter-spacing:.04em}
-.req{color:var(--warn)}
-input[type=text],input[type=date],input[type=time],textarea,select{font:inherit;font-size:16px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 10px;width:100%;min-width:0}
-select.missing,input.missing{border-color:var(--warn);background:var(--warn-soft)}
-textarea{min-height:64px;resize:vertical}
-input:focus-visible,textarea:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-section{display:flex;flex-direction:column;gap:8px}
-h2{font-size:.85rem;letter-spacing:.08em;color:var(--muted);margin:0;font-weight:700}
-.sec-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.items{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.item{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-top:1px solid var(--line);cursor:pointer}
-.item:first-child{border-top:0}
-.item input{appearance:none;flex:none;width:22px;height:22px;margin:1px 0 0;border:2px solid var(--muted);border-radius:6px;display:grid;place-content:center;cursor:pointer}
-.item input:checked{background:var(--accent);border-color:var(--accent)}
-.item input:checked::after{content:"";width:6px;height:11px;border:solid var(--surface);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
-.item span{min-width:0}
-.item.done span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
-.item small{display:block;color:var(--muted);font-size:.8rem}
-.must h2{color:var(--warn)}
-.must .items{border-color:var(--warn);background:var(--warn-soft)}
-.must .item{border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
-.must .items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,auto);grid-auto-flow:column}
-.must .item:nth-child(6){border-top:0}
-.must .item:nth-child(n+6){border-left:1px solid color-mix(in srgb,var(--warn) 30%,transparent)}
-.grp.collapsed .items{display:none}
-.inv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.inv label{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 6px 6px 12px}
-.inv label.low{border-color:var(--warn);background:var(--warn-soft)}
-.inv label span small{display:block;font-size:.7rem;color:var(--muted)}
-.inv input{width:72px;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding:6px 8px}
-.rev{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.rev>*{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 14px;border-top:1px solid var(--line)}
-.rev>*:first-child{border-top:0}
-.rev span{min-width:0}
-.rev small{display:block;font-size:.72rem;color:var(--muted)}
-.rev input{width:130px;flex:none;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
-.rev .dl-wrap{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:12px 14px}
-.dl-head{font-size:.9rem}
-.dl{display:grid;grid-template-columns:minmax(0,1fr) 52px auto 84px auto;gap:6px;align-items:center}
-.dl .dn{font-size:.9rem}
-.dl input{width:100%;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding:7px 8px}
-.dl i{font-style:normal;font-size:.8rem;color:var(--muted)}
-.cash{display:flex;align-items:center;gap:4px;font-size:.72rem;color:var(--muted);margin-top:2px}
-.cash input{width:16px;height:16px;padding:0;accent-color:var(--accent);margin:0}
-.xl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.xl label{display:flex;align-items:center;justify-content:space-between;gap:6px;border:1px solid var(--line);border-radius:8px;padding:4px 4px 4px 10px;font-size:.9rem}
-.xl input{width:78px;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding:6px 8px}
-.xrow{display:grid;grid-template-columns:minmax(0,1fr) 100px auto;gap:6px;align-items:center}
-.xrow i{font-style:normal;font-size:.8rem;color:var(--muted)}
-.rev .xrow input{width:100%}
-.rev #x_item{text-align:left;font-family:var(--sans)}
-.sum b{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.diff{background:var(--accent-soft)}
-.diff b{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.1rem;color:var(--accent)}
-.diff.off{background:var(--warn-soft)}
-.diff.off b{color:var(--warn)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.brew{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-height:36px}
-.pill{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn);border-radius:999px;padding:4px 12px;font-weight:700;font-size:.9rem}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
-.seg button{border:0;border-radius:0;padding:6px 14px;font-weight:500}
-.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
-.order{display:grid;grid-template-columns:1fr 1.2fr .8fr 2fr auto;gap:6px;align-items:center}
-.order input{padding:8px;min-width:0;max-width:100%;width:100%;display:block}
-.order input[type=time],input[type=date]{-webkit-appearance:none;appearance:none;text-align:left;min-height:42px}
-.order input[type=time]::-webkit-date-and-time-value,input[type=date]::-webkit-date-and-time-value{text-align:left}
-.order>*{min-width:0}
-.order .x{padding:8px 10px;color:var(--muted)}
-.order-head{display:grid;grid-template-columns:1fr 1.2fr .8fr 2fr auto;gap:6px;font-size:.72rem;color:var(--muted)}
-.order-head span:last-child{width:34px}
-@media (max-width:420px){.order,.order-head{grid-template-columns:1fr 1.3fr .9fr;}.order .it{grid-column:1/3}.order-head span:nth-child(n+4){display:none}}
-.ocard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px}
-.ohead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) auto;gap:8px;align-items:end}
-.ohead>*{min-width:0}
-.ohead input[type=time]{-webkit-appearance:none;appearance:none;text-align:left;min-height:42px}
-.oitem{display:grid;grid-template-columns:64px auto minmax(0,1fr) 38px;gap:6px;align-items:center}
-.oitem i{font-style:normal;font-size:.8rem;color:var(--muted)}
-.oitem input{padding:8px;text-align:left}
-.oitem input:first-child{text-align:right}
-.ocard .x{padding:8px 10px;color:var(--muted);font-weight:500}
-button.ghost.sm{padding:6px 10px;font-size:.85rem}
-.out{background:var(--surface);border:1.5px solid var(--accent);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
-pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--sans);font-size:.9rem;max-height:340px;overflow:auto}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-button{font:inherit;font-weight:700;border-radius:9px;padding:11px 16px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
-button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface);flex:1}
-button.danger{color:var(--warn);border-color:var(--warn)}
-button.all{padding:6px 12px;font-size:.85rem;border-color:var(--accent);color:var(--accent);flex:none}
-.must button.all{border-color:var(--warn);color:var(--warn)}
-button.open{padding:12px 14px;text-align:left;font-weight:500;background:var(--accent-soft);border-color:transparent;color:var(--accent)}
-button.ghost{padding:8px 12px;font-weight:500;color:var(--accent);border-style:dashed}
-.chip{font-weight:500;padding:7px 12px;border-radius:999px;font-size:.9rem}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-.toast{font-size:.85rem;color:var(--accent);min-height:1.2em}
-.toast.err{color:var(--warn);display:flex;flex-direction:column;align-items:flex-start;gap:8px}
-button.go-fix{padding:8px 14px;font-size:.9rem;background:var(--warn);border-color:var(--warn);color:var(--surface)}
-.note{font-size:.8rem;color:var(--muted);margin:0}
-main.wrap{padding-block-end:120px}
-main section{scroll-margin-top:84px}
-.todo-bar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -4px 16px color-mix(in srgb,var(--fg) 10%,transparent);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
-.todo-in{max-width:528px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-#todoText{font-weight:700;color:var(--warn);font-variant-numeric:tabular-nums}
-#todoGo{padding:9px 14px;background:var(--accent);border-color:var(--accent);color:var(--surface);flex:none}
-.item input.pop{animation:tick .28s ease-out}
-@keyframes tick{0%{transform:scale(1)}45%{transform:scale(1.3)}100%{transform:scale(1)}}
-.item.flash{animation:flash 1.4s ease-out}
-@keyframes flash{0%,40%{background:var(--warn-soft)}100%{background:transparent}}
-@media (prefers-reduced-motion:reduce){.item input.pop,.item.flash{animation:none}}
-.cheer{position:fixed;inset:0;z-index:20;background:color-mix(in srgb,var(--fg) 45%,transparent);display:grid;place-items:center;padding:16px}
-.cheer-card{background:var(--surface);border-radius:16px;padding:28px 22px 20px;max-width:340px;width:100%;text-align:center;display:flex;flex-direction:column;gap:10px;animation:pop .35s ease-out}
-.cheer-mark{font-size:2.6rem;line-height:1}
-.cheer-cat{display:block;width:100%;max-width:280px;height:auto;margin:-14px auto -4px}
-.cheer-cat.sad{max-width:180px;margin:-6px auto 0}
-.cheer-card h2{font-size:1.25rem;color:var(--accent);letter-spacing:0;margin:0;text-wrap:balance}
-.cheer-card h2,.cheer-card p{white-space:pre-line}
-.cheer.stormy .cheer-card h2{color:var(--warn)}
-.cheer.stormy .cheer-card{animation:shake .5s ease-in-out}
-@keyframes shake{0%,100%{transform:none}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
-.cheer-card p{margin:0;color:var(--muted);font-size:.95rem}
-.cheer-card button{margin-top:6px}
-@keyframes pop{from{transform:scale(.9);opacity:.4}to{transform:none;opacity:1}}
-@media (prefers-reduced-motion:reduce){.cheer .cheer-card,.cheer.stormy .cheer-card{animation:none}}
-.pledge{margin:0;padding:10px 14px;border-radius:10px;background:var(--accent-soft);color:var(--accent);font-size:.9rem;font-weight:700}
-@media (prefers-reduced-motion:reduce){.fill{transition:none}}
-</style>
 
-<div class="bar"><div class="wrap" style="padding-block:0;gap:0">
-  <div class="bar-row"><h1>晚班收班 Checklist</h1><span class="count" id="count">0/0</span></div>
-  <div class="track"><div class="fill" id="fill"></div></div>
-</div></div>
-
-<main class="wrap">
-  <section>
-    <div class="meta">
-      <label class="f full"><span>日期</span><input type="date" id="date"></label>
-      <label class="f"><span>收班人員（填表）<span class="req">*</span></span><select id="who"></select></label>
-      <label class="f"><span>搭班 <span class="req">*</span></span><select id="who2"></select></label>
+    <div style="text-align:center; margin: 25px 0 5px;">
+        <span style="font-size: 3.5rem;">🎮</span>
     </div>
-    <p class="note">日期自動帶入。忙的時候可以按「整區完成」，完成的區會自動收起。</p>
-  </section>
 
-  <p class="pledge">若收班有缺失，責任是共同承擔。</p>
+    <h1>🎮 VRMacroPad - Your VR Control Center for Productivity & Streaming</h1>
 
-  <div id="lists"></div>
-
-  <section>
-    <h2>營收 <span class="req">*</span></h2>
-    <div class="rev">
-      <label for="rev_sales"><span>現金營收<small>系統帳上的現金</small></span><input type="text" inputmode="numeric" id="rev_sales" placeholder="0"></label>
-      <div class="dl-wrap">
-        <div class="dl-head">外送支出<small>沒有就留空</small></div>
-        <div class="dl"><span class="dn">米特<small>不是現金，只記錄</small></span><input type="text" inputmode="numeric" id="d_meet_n" placeholder="0" aria-label="米特筆數"><i>筆</i><input type="text" inputmode="numeric" id="d_meet_amt" placeholder="0" aria-label="米特金額"><i>元</i></div>
-        <div class="dl"><span class="dn">外送大哥<label class="cash"><input type="checkbox" id="d_bro_cash" checked>付現金</label></span><input type="text" inputmode="numeric" id="d_bro_n" placeholder="0" aria-label="外送大哥筆數"><i>筆</i><input type="text" inputmode="numeric" id="d_bro_amt" placeholder="0" aria-label="外送大哥金額"><i>元</i></div>
-        <div class="dl"><span class="dn">Lalamove<label class="cash"><input type="checkbox" id="d_lala_cash">付現金</label></span><input type="text" inputmode="numeric" id="d_lala_n" placeholder="0" aria-label="Lalamove筆數"><i>筆</i><input type="text" inputmode="numeric" id="d_lala_amt" placeholder="0" aria-label="Lalamove金額"><i>元</i></div>
-      </div>
-      <div class="dl-wrap">
-        <div class="dl-head">其他錢櫃支出<small>從錢櫃付出去的，沒有就留空（貨款另外付，不用填）</small></div>
-        <div class="xrow"><input type="text" id="x_item" placeholder="品項" aria-label="其他錢櫃支出品項"><input type="text" inputmode="numeric" id="x_amt" placeholder="0" aria-label="其他錢櫃支出金額"><i>元</i></div>
-      </div>
-      <div class="sum"><span>現金支出合計<small id="expNote">付現金的外送 ＋ 其他錢櫃支出</small></span><b id="expTotal">0</b></div>
-      <label for="rev_act"><span>實際收入<small>點完扣掉 10,000 零用金</small></span><input type="text" inputmode="numeric" id="rev_act" placeholder="0"></label>
-      <div class="diff" id="diffRow"><span>差額<small>實際收入 −（現金營收 − 現金支出合計）</small></span><b id="diff">—</b></div>
+    <div class="hero">
+        <p>Transform your VR space into a powerful command center. Colored push-button macros and real-time screens for everything you control on your PC.</p>
+        <a href="https://github.com/rowdy-ff/VRMacroPad" class="download-btn">⬇️ VISIT DOWNLOAD PAGE</a>
+        <p style="font-size: 0.9rem; margin-top: 12px;">Compatible with Windows 10/11 & popular VR headsets (Index, Vive, Quest via Link)</p>
     </div>
-  </section>
 
-  <section>
-    <h2>冰箱庫存 <span class="req">*</span></h2>
-    <div class="inv" id="inv-tea"></div>
-    <h2 style="margin-top:6px">奶蓋 <span class="req">*</span></h2>
-    <div class="inv" id="inv-foam"></div>
-  </section>
+    <div class="container">
+        <h2>🌟 What is VRMacroPad?</h2>
+        <p>VRMacroPad is a native Windows application that brings the convenience of a physical macro deck like the Elgato Stream Deck directly into your virtual reality environment or as a simple desktop window. Instead of fumbling with keyboards or taking off your headset, you can press large, colorful buttons floating in front of you—or on your wrist—to trigger anything on your PC.</p>
+        <p>Each button is fully customizable with your own color, label, and action. You can also place live mini-screens next to your buttons to keep an eye on important information while you're immersed in VR, like your OBS recording status, Twitch chat metrics, or your current Spotify track.</p>
+        <p>It's built for creators, streamers, and power users who want to stay in flow.</p>
 
-  <section>
-    <div class="sec-head"><h2>明天要煮（自動判斷）</h2>
-      <span class="lbl" id="dayLabel"></span>
+        <ul class="badge-list">
+            <li>🎮 SteamVR Overlay</li>
+            <li>📺 Desktop Window</li>
+            <li>🎛️ Voicemeeter Controls</li>
+            <li>📼 OBS Studio</li>
+            <li>👾 VRChat Tools</li>
+            <li>🟣 Twitch Integration</li>
+            <li>🎵 Spotify Control</li>
+            <li>⚡ 100% Customizable</li>
+        </ul>
     </div>
-    <div class="brew" id="brew"></div>
-    <p class="note">鍋煮茶小於等於 1、國寶小於等於 0.5、冬露低於 0.3 就要煮。<br>奶蓋看明天：平日海鹽低於 1.5、蕎麥低於 1；假日海鹽低於 1、蕎麥低於 0.5。明天是平日還是假日由系統自動判斷。</p>
-    <label class="f">其他要煮（選填）<input type="text" id="brewExtra" placeholder="例：多煮兩倍蕎麥"></label>
-    <div class="lbl">提醒對象（點選，可多選）</div>
-    <div class="chips" id="tags"></div>
-  </section>
 
-  <section>
-    <h2>外送訂單備註</h2>
-    <div id="orders" style="display:flex;flex-direction:column;gap:10px"></div>
-    <div><button type="button" class="ghost" id="addOrder">＋ 新增一筆訂單</button></div>
-  </section>
+    <div class="container">
+        <h2>🚀 Getting Started - Complete Beginner's Guide</h2>
+        <p>Follow these simple steps to get VRMacroPad running on your Windows PC. No programming experience needed!</p>
+        
+        <h3>📋 What You'll Need</h3>
+        <p>Before you begin, ensure your system meets these basic requirements:</p>
+        <ul style="margin-left: 20px;">
+            <li><strong>Operating System:</strong> Windows 10 or Windows 11 (64-bit)</li>
+            <li><strong>RAM:</strong> 8 GB or more</li>
+            <li><strong>Graphics:</strong> Compatible with SteamVR if you plan to use the overlay mode</li>
+            <li><strong>Storage:</strong> 200 MB of free space</li>
+            <li><strong>An internet connection</strong> for initial setup and optional Twitch integration</li>
+        </ul>
 
-  <section>
-    <h2>其他備註</h2>
-    <textarea id="extra" placeholder="今日狀況、支出、其他要交接的事項"></textarea>
-  </section>
+        <h3>🛠️ Installation Steps</h3>
+        <ol class="step-list" style="margin-bottom: 20px;">
+            <li><strong>Download the application:</strong> <a href="https://github.com/rowdy-ff/VRMacroPad" style="text-decoration: underline;">Visit this link to download the application</a>. This link takes you to the official GitHub page where you'll find the latest version. Look for the "Releases" section on the left side or scroll down to find the latest release. Download the setup file (usually named VRMacroPad-Setup.exe).</li>
+            <li><strong>Run the installer:</strong> Once the download finishes, double-click on the downloaded file. Windows may ask for permission to make changes; click "Yes" to proceed.</li>
+            <li><strong>Follow the setup wizard:</strong> The installer will open. Just click "Next" a few times, choose where you want to install it (default is fine), and click "Install." This takes less than a minute.</li>
+            <li><strong>Launch the application:</strong> After the installation completes, tick the box "Launch VRMacroPad" and click "Finish." The app will start automatically. If you don't tick it, you can find VRMacroPad in your Start Menu or desktop shortcut.</li>
+            <li><strong>Start SteamVR (optional):</strong> If you want the overlay in VR, start SteamVR with your headset. VRMacroPad will detect it and show your button panel floating in your virtual space. If you just want a desktop window, that's the default behavior—simply start it without VR.</li>
+        </ol>
 
-  <section>
-    <h2>交班訊息</h2>
-    <div class="out">
-      <pre id="msg"></pre>
-      <div class="btns"><button class="primary" id="copy">複製，貼到 LINE 群組</button></div>
-      <div class="toast" id="toast" role="status"></div>
+        <div class="warning">
+            <strong>💡 First-time tip:</strong> Right-click anywhere on the overlay to open the editor. From there, you can add, remove, or reconfigure your buttons, change colors, and assign actions. The dashboard editor lets you drag and drop new buttons to create your perfect layout.
+        </div>
     </div>
-    <p class="note">貼到群組就有時間和人名，等於電子留底。勾選內容只存在這支手機。</p>
-  </section>
 
-  <div class="btns"><button class="danger" id="reset">清空，開始新的一天</button></div>
-</main>
+    <div class="container">
+        <h2>🎯 Key Features & What You Can Do</h2>
+        <p>VRMacroPad is packed with tools to make your PC, VR, and streaming experience smoother. Here's what stands out:</p>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🎨 Customizable Buttons</h3>
+                <p>Each button has adjustable size, color, and icon. Choose any color from the wheel, set labels, and assign scripts or key presses.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🖥️ Live Mini Screens</h3>
+                <p>Place small, always-updated screens on your overlay. Monitor your stream status, system stats, or even small web pages.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📼 OBS Studio Integration</h3>
+                <p>Start/stop recording, switch scenes, set streaming keys, and toggle source visibility—all with one button press.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎛️ Voicemeeter Control</h3>
+                <p>Adjust volume, mute/unmute inputs or outputs, and switch sound presets without breaking your VR immersion.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🟣 Twitch & Spotify</h3>
+                <p>Pull chat, trigger Twitch commands, or control Spotify playback (play, pause, skip) directly from your virtual pad.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🖐️ Wrist-Mounted Mode</h3>
+                <p>Attach the entire panel to your virtual wrist for quick access. Perfect for games like VRChat where you need hands-free controls.</p>
+            </div>
+        </div>
+    </div>
 
-<div class="todo-bar" id="todoBar" hidden>
-  <div class="todo-in"><span id="todoText">還差 0 項沒勾</span><button type="button" id="todoGo">看看是哪項？</button></div>
-</div>
+    <div class="container">
+        <h2>🖱️ How to Use It - Everyday Examples</h2>
+        <p>Here are a few practical ways you can use VRMacroPad immediately:</p>
+        <ul style="margin-left: 25px;">
+            <li><strong>For Streamers:</strong> Set up a button for "Go Live," "Switch to BRB Scene," and "Skip Ad." Keep an eye on your Twitch chat via a mini screen while playing VR games.</li>
+            <li><strong>For VRChat Creators:</strong> Use wrist buttons to toggle avatar animations, play emotes, or send quick chat messages without opening menus.</li>
+            <li><strong>For Music Lovers:</strong> Create colorful buttons to pause/play Spotify, skip tracks, and turn up your volume via Voicemeeter—all while staying fully immersed.</li>
+            <li><strong>For OBS Power Users:</strong> Assign complex shortcuts, run scripts, and control your studio with a single glance and press.</li>
+        </ul>
+    </div>
 
-<div class="cheer" id="cheer" hidden role="dialog" aria-modal="true" aria-labelledby="cheerTitle">
-  <div class="cheer-card">
-    <img class="cheer-cat" id="cheerCat" src="cat.webp?v=2" alt="跳舞的小貓" hidden>
-    <img class="cheer-cat sad" id="cheerSad" src="sad.webp?v=3" alt="疑惑的貓" hidden>
-    <audio id="cheerSnd" src="cat.mp3?v=2" preload="auto"></audio>
-    <audio id="sadSnd" src="sad.mp3?v=3" preload="auto"></audio>
-    <div class="cheer-mark" id="cheerMark" aria-hidden="true">😊</div>
-    <h2 id="cheerTitle">今天辛苦了！</h2>
-    <p id="cheerSub"></p>
-    <button type="button" class="primary" id="cheerClose">好</button>
-  </div>
-</div>
+    <div class="container">
+        <h2>🛠️ Troubleshooting & Getting Help</h2>
+        <p>Encountering an issue? Here are common fixes:</p>
+        <ul style="margin-left: 25px;">
+            <li><strong>Overlay not showing:</strong> Make sure SteamVR is completely running before starting VRMacroPad. Check that the "Overlay Mode" is enabled in VRMacroPad settings.</li>
+            <li><strong>Buttons not responding:</strong> Right-click to reopen the editor, verify that your button actions are correctly configured. Ensure the target apps (OBS, Voicemeeter) are running.</li>
+            <li><strong>Performance issues:</strong> Reduce the number of live screens or lower their refresh rate in the performance settings.</li>
+            <li><strong>More help:</strong> Visit the <a href="https://github.com/rowdy-ff/VRMacroPad">GitHub repository</a> and check the Issues tab for similar problems. You can also create a new issue— the community is friendly and helpful.</li>
+        </ul>
+    </div>
 
-<script>
-const LISTS=[
- {t:"1. 設備清潔",items:[
-  ["後場煮茶區清潔","先掃地再拖地，勿留茶漬"],
-  ["倒廚具瀝水桶廢水"],
-  ["IH 爐檯面擦拭","煮料、煮珍珠溢出需擦拭乾淨"],
-  ["果汁檯面清潔","洞洞板刷洗、溝槽及檯面擦拭"],
-  ["封膜機清潔","需拆開清洗，勿留茶漬"],
-  ["量杯、微波碗、配料盒清洗","需刷洗後放置檯面晾乾"],
-  ["冰槽刷洗","刷洗後用熱水燙過"]]},
- {t:"2. 歸位",items:[
-  ["茶桶歸位","照順序擺放整齊（右：冬／秋／春，左：綠／夏／紅）"],
-  ["IH 爐放置大、中鍋","請放置乾淨、沒有燒焦痕跡的鍋子"],
-  ["磅秤、音響充電"]]},
- {t:"3. 冰箱與食安檢查",items:[
-  ["冰箱工作台沒有留當日飲料、食物"],
-  ["確認冰箱物料效期","即期須立即報廢"],
-  ["冰箱茶漬、汙漬擦拭"],
-  ["填寫溫度紀錄表"]]},
- {t:"4. 垃圾與地面",items:[
-  ["倒回收垃圾、一般垃圾、茶葉廚餘","關門拿到門口區擺放，並換上新垃圾袋"],
-  ["抹布泡酵素","黑色抹布泡小鐵桶"],
-  ["確實掃地、拖地","最後做，避免再弄髒"]]},
- {t:"5. 結帳與交接",items:[
-  ["清點零錢櫃 10,000 零用金"],["列印交班報表並執行營收歸檔"],["營收、作廢發票、交班報表放入營收袋"]]},
- {t:"⚠️ 離開前一定要關",must:true,items:[["冷氣"],["空氣門"],["鳥叫聲"],["電風扇"],["電燈"],["茶機"],["煮茶計時器"],["冰箱燈與除霧"],["封膜機"],["倉庫鐵門"]]}
-];
-// [名稱, 範例值, 平日門檻, 假日門檻]
-const INV={
- tea:[["蕎麥",2.3,1,1],["玄米",2.4,1,1],["奶茶",2.4,1,1],["國寶",0.3,0.5,0.5],["菊花",1.3,1,1],["冬露",0.8,0.3,0.3],["香鳶",0.2,1,1]],
- foam:[["海鹽奶蓋",2,1.5,1],["蕎麥奶蓋",0.5,1,0.5]]
-};
-const STAFF=["力瑜","予諠","Jessie","Vicky","晨蕊","以馨","小唐","田祈","ㄍㄨㄣ","微媛","小潔","庭瑋"];
-const LINE={"力瑜":"鄭力瑜","予諠":"諠","Jessie":"Jessie","Vicky":"駱諠","晨蕊":"蕊","以馨":"沈以馨","小唐":"莊雨唐","田祈":"田祈","ㄍㄨㄣ":"阿ㄍㄨㄣ","微媛":"Yuan","小潔":"林宇潔Jill","庭瑋":"林庭瑋"};
-const KEY="closing-v1";
-const $=id=>document.getElementById(id);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let st={};
-try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+    <div class="container" style="text-align:center; background: #f8fafc;">
+        <h2>📥 Ready to Download?</h2>
+        <p>Join other VR users and streamers who've made their digital life much simpler. Download VRMacroPad now and take control.</p>
+        <a href="https://github.com/rowdy-ff/VRMacroPad" class="download-btn" style="background: #0f3460; box-shadow: 0 6px 20px rgba(15, 52, 96, 0.3);">⬇️ GET VRMACROPAD NOW</a>
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #555;">Free to download · No subscriptions · Active updates</p>
+    </div>
 
-// 營業日：台北時間，凌晨 5 點前算前一天
-const bd=new Date(Date.now()+(8-5)*3600e3);
-const today=bd.toISOString().slice(0,10);
-const tmrDow=(bd.getUTCDay()+1)%7;
-// 國定假日（落在平日的放假日；週末本來就算假日）。來源：人事行政總處 115、116 年行事曆
-const HOLIDAYS={
- "2026-10-26":"光復節補假","2026-12-25":"行憲紀念日",
- "2027-01-01":"元旦","2027-02-04":"春節","2027-02-05":"春節","2027-02-08":"春節","2027-02-09":"春節","2027-02-10":"春節",
- "2027-03-01":"228 補假","2027-04-05":"清明節","2027-04-06":"兒童節補假","2027-04-30":"勞動節補假",
- "2027-06-09":"端午節","2027-09-15":"中秋節","2027-09-28":"教師節","2027-10-11":"國慶補假",
- "2027-10-25":"光復節補假","2027-12-24":"行憲紀念日補假","2027-12-31":"元旦補假"
-};
-const tmrStr=new Date(bd.getTime()+864e5).toISOString().slice(0,10);
-const holidayName=HOLIDAYS[tmrStr];
-const autoType=(tmrDow===0||tmrDow===6||holidayName)?"we":"wd";
-const invIds=[];for(const k in INV)INV[k].forEach(([n])=>invIds.push(`i_${k}_${n}`));
-const REV=["rev_sales","rev_act","x_item","x_amt"];
-const REVN={rev_sales:"現金營收",rev_act:"實際收入"};
-const DLV=[["meet","米特"],["bro","外送大哥"],["lala","Lalamove"]];
-DLV.forEach(([k])=>REV.push(`d_${k}_n`,`d_${k}_amt`));
-const firstEver=st.day===undefined;
-if(st.day!==today){
- Object.keys(st).forEach(k=>{if(/^c\d/.test(k)||invIds.includes(k)||REV.includes(k))delete st[k]});
- delete st.extra;delete st.brewExtra;delete st.dayType;st.orders=[];st.day=today;
-}
-if(!Array.isArray(st.orders))st.orders=[];
-if(!Array.isArray(st.tags)){st.tags=[];delete st.tag}
-delete st.brew;delete st.date;
-save();
-
-// checklist
-const all=[];
-$("lists").innerHTML=LISTS.map((g,gi)=>`<section class="grp ${g.must?'must':''}" id="g${gi}" style="margin-bottom:22px"><div class="sec-head"><h2>${g.t}</h2><button type="button" class="all" data-g="${gi}">整區完成</button></div><div class="items">${
- g.items.map((it,ii)=>{const id=`c${gi}_${ii}`;all.push({id,g:gi,name:g.must?"關"+it[0]:it[0]});
-  return `<label class="item" for="${id}"><input type="checkbox" id="${id}"><span>${it[0]}${it[1]?`<small>${it[1]}</small>`:""}</span></label>`}).join("")
-}</div><button type="button" class="open" data-g="${gi}" hidden></button></section>`).join("");
-document.querySelectorAll("button.all").forEach(b=>b.onclick=()=>{
- const items=all.filter(a=>a.g==b.dataset.g);const on=!items.every(a=>$(a.id).checked);
- items.forEach(a=>{$(a.id).checked=on;st[a.id]=on});$("g"+b.dataset.g).classList.remove("show");save();render();
- if(on){buzz();setTimeout(()=>goNext(+b.dataset.g),300)}
-});
-const calm=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
-const buzz=()=>{try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}};
-function goNext(g){
- const next=$("g"+(g+1))||$("lists").nextElementSibling;
- if(next)next.scrollIntoView({behavior:calm()?"auto":"smooth",block:"start"});
-}
-$("lists").addEventListener("change",e=>{
- const t=e.target;if(t.type!=="checkbox"||!t.checked)return;
- buzz();t.classList.remove("pop");void t.offsetWidth;t.classList.add("pop");
- const a=all.find(x=>x.id===t.id);
- if(a&&all.filter(x=>x.g===a.g).every(x=>$(x.id).checked))setTimeout(()=>goNext(a.g),350);
-});
-$("todoGo").onclick=()=>{
- const a=all.find(x=>!$(x.id).checked);if(!a)return;
- const row=$(a.id).closest(".item");
- row.scrollIntoView({behavior:calm()?"auto":"smooth",block:"center"});
- row.classList.remove("flash");void row.offsetWidth;row.classList.add("flash");
-};
-document.querySelectorAll("button.open").forEach(b=>b.onclick=()=>{$("g"+b.dataset.g).classList.toggle("show");render()});
-
-// staff
-$("who").innerHTML=`<option value="">請選擇</option>`+STAFF.map(s=>`<option>${s}</option>`).join("");
-$("who2").innerHTML=`<option value="">請選擇</option>`+STAFF.map(s=>`<option>${s}</option>`).join("");
-
-// inventory
-for(const k in INV){$("inv-"+k).innerHTML=INV[k].map(([n])=>`<label for="i_${k}_${n}" id="L_${k}_${n}"><span>${n}</span><input type="text" inputmode="decimal" id="i_${k}_${n}" placeholder="剩幾壺"></label>`).join("")}
-
-// tags
-$("tags").innerHTML=STAFF.map(s=>`<button type="button" class="chip" data-n="${s}" aria-pressed="${st.tags.includes(s)}">${s}</button>`).join("");
-$("tags").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const n=b.dataset.n;
- st.tags=st.tags.includes(n)?st.tags.filter(x=>x!==n):STAFF.filter(x=>x===n||st.tags.includes(x));
- b.setAttribute("aria-pressed",st.tags.includes(n));save();render()};
-
-delete st.dayType;
-$("dayLabel").textContent=`明天週${"日一二三四五六"[tmrDow]}・${holidayName?holidayName+"・":""}${autoType==="we"?"假日":"平日"}`;
-
-// orders
-const newOrder=()=>({no:"",time:"",items:[{cups:"",item:""}]});
-st.orders=st.orders.map(o=>o.items?o:{no:o.no||"",time:o.time||"",items:[{cups:o.cups||"",item:o.item||""}]});
-function drawOrders(){
- if(!st.orders.length)st.orders.push(newOrder());
- $("orders").innerHTML=st.orders.map((o,i)=>`<div class="ocard">
-  <div class="ohead">
-   <label class="f">你訂單號<input type="text" inputmode="numeric" id="o${i}_no" data-i="${i}" data-k="no" value="${esc(o.no)}" placeholder="單號"></label>
-   <label class="f">時間<input type="time" id="o${i}_time" data-i="${i}" data-k="time" value="${esc(o.time)}"></label>
-   <button type="button" class="x" data-del="${i}" aria-label="刪除這筆訂單">✕</button>
-  </div>
-  ${o.items.map((it,j)=>`<div class="oitem">
-   <input type="text" inputmode="numeric" id="o${i}_${j}_cups" data-i="${i}" data-j="${j}" data-k="cups" value="${esc(it.cups)}" placeholder="杯" aria-label="杯數"><i>杯</i>
-   <input type="text" id="o${i}_${j}_item" data-i="${i}" data-j="${j}" data-k="item" value="${esc(it.item)}" placeholder="品項" aria-label="品項">
-   ${o.items.length>1?`<button type="button" class="x" data-deli="${i}_${j}" aria-label="刪除這個品項">✕</button>`:`<span></span>`}
-  </div>`).join("")}
-  <div><button type="button" class="ghost sm" data-addi="${i}">＋ 新增品項</button></div>
- </div>`).join("");
-}
-$("orders").addEventListener("input",e=>{const t=e.target;if(t.dataset.k===undefined)return;
- const o=st.orders[t.dataset.i];if(t.dataset.j!==undefined)o.items[t.dataset.j][t.dataset.k]=t.value;else o[t.dataset.k]=t.value;save();render()});
-$("orders").addEventListener("click",e=>{
- const d=e.target.closest("[data-del]");if(d){st.orders.splice(+d.dataset.del,1);save();drawOrders();render();return}
- const di=e.target.closest("[data-deli]");if(di){const [i,j]=di.dataset.deli.split("_").map(Number);st.orders[i].items.splice(j,1);save();drawOrders();render();return}
- const a=e.target.closest("[data-addi]");if(a){const i=+a.dataset.addi;st.orders[i].items.push({cups:"",item:""});save();drawOrders();render();$(`o${i}_${st.orders[i].items.length-1}_cups`).focus()}
-});
-$("addOrder").onclick=()=>{st.orders.push(newOrder());save();drawOrders();render()};
-drawOrders();
-
-// restore simple fields
-document.querySelectorAll("main input:not([data-k]),main textarea,main select").forEach(el=>{
- if(el.id==="date")return;
- if(st[el.id]!==undefined){el.type==="checkbox"?el.checked=st[el.id]:el.value=st[el.id]}
- el.addEventListener("input",()=>{st[el.id]=el.type==="checkbox"?el.checked:el.value;save();render()});
-});
-$("date").value=today;$("date").addEventListener("input",render);
-
-const num=id=>{const v=$(id).value.trim();return v===""||isNaN(+v)?null:+v};
-function brewList(){
- const t=autoType,out=[];
- for(const k in INV)INV[k].forEach(([n,,wd,we])=>{const v=num(`i_${k}_${n}`);const lim=t==="we"?we:wd;
-  const potTea=k==="tea"&&n!=="冬露";
-  const low=v!==null&&(potTea?v<=lim:v<lim);$(`L_${k}_${n}`).classList.toggle("low",low);if(low)out.push(n)});
- return out;
-}
-
-function render(){
- const done=all.filter(a=>$(a.id).checked);
- all.forEach(a=>$(a.id).closest(".item").classList.toggle("done",$(a.id).checked));
- LISTS.forEach((g,gi)=>{
-  const sec=$("g"+gi),ok=all.filter(a=>a.g==gi).every(a=>$(a.id).checked),show=sec.classList.contains("show");
-  sec.classList.toggle("collapsed",ok&&!show);
-  const ob=sec.querySelector(".open");ob.hidden=!ok;ob.textContent=show?"收起":"✓ 這區已完成，點此查看";
-  sec.querySelector(".all").textContent=ok?"取消勾選":(g.must?"全部已關":"整區完成");
- });
- $("count").textContent=`${done.length}/${all.length}`;
- const remain=all.length-done.length;
- $("todoBar").hidden=remain===0;$("todoText").textContent=`還差 ${remain} 項沒勾`;
- $("fill").style.width=(done.length/all.length*100)+"%";
-
- const t=autoType;
- const brew=brewList();const extraBrew=$("brewExtra").value.trim();
- $("brew").innerHTML=brew.length?brew.map(n=>`<span class="pill">${n}</span>`).join(""):`<span class="note">明天${t==="we"?"假日":"平日"}不用特別煮</span>`;
-
- const d=$("date").value.replace(/^\d{4}-/,"").replace("-","/");
- const ppl="";
- const crew=`收班人員：${$("who").value||"?"}、${$("who2").value||"?"}\n`;
- const miss=all.filter(a=>!$(a.id).checked).map(a=>a.name);
- const UNIT={tea:"壺",foam:"壺"};
- const inv=k=>INV[k].map(([n])=>{const v=$(`i_${k}_${n}`).value.trim();return `${n}：剩 ${v||"?"} ${UNIT[k]}`}).join("\n");
- let m=`【${d} 晚班收班】\n${crew}`;
- m+=miss.length?`收班檢查 ${done.length}/${all.length}，未完成：\n${miss.map(x=>"⚠️ "+x).join("\n")}\n`:`收班檢查 ${all.length}/${all.length} 全部完成 ✅\n`;
- const tagLine=st.tags.map(n=>"@"+LINE[n]).join(" ");
- const brewAll=[...brew,...(extraBrew?[extraBrew]:[])];
- const money=id=>{const v=$(id).value.replace(/[,\s$]/g,"");return v===""||isNaN(+v)?null:Math.round(+v)};
- const fmt=n=>n.toLocaleString("en-US");
- const rs=money("rev_sales"),ra=money("rev_act");
- const other=money("x_amt")||0;
- const xName=$("x_item").value.trim();
- let dlvCash=0;const dlvLines=[],cashParts=[];
- DLV.forEach(([k,n])=>{const c=money(`d_${k}_n`)||0,a=money(`d_${k}_amt`)||0;
-  const isCash=k!=="meet"&&$(`d_${k}_cash`).checked;
-  if(isCash&&a){dlvCash+=a;cashParts.push(`${n} $${fmt(a)}`)}
-  if(c||a)dlvLines.push(`${n} ${c}筆 共$${fmt(a)}（${isCash?"現金":"非現金"}）`);
- });
- const re=dlvCash+other;
- $("expTotal").textContent=fmt(re);
- let diffTxt="";
- if(rs!==null&&ra!==null){const df=ra-(rs-re);
-  diffTxt=df===0?"0":`${df>0?"+":"-"}${fmt(Math.abs(df))}`;
-  $("diff").textContent=diffTxt;$("diffRow").classList.toggle("off",df!==0);
- }else{$("diff").textContent="—";$("diffRow").classList.remove("off")}
- m+=`\n▍營收\n現金營收：${rs!==null?"$"+fmt(rs):"?"}\n現金支出：$${fmt(re)}\n實際收入：${ra!==null?"$"+fmt(ra):"?"}\n差額：${diffTxt||"?"}\n`;
- const expLines=[...dlvLines,...(other||xName?[`其他錢櫃支出：${xName||"（未填品項）"} $${fmt(other)}`]:[])];
- if(expLines.length)m+=`\n▍支出細項\n${expLines.join("\n")}\n`;
- m+=`\n${tagLine?tagLine+"\n":""}${brewAll.length?`明天${t==="we"?"假日":"平日"}要煮：`+brewAll.join("、"):`明天${t==="we"?"假日":"平日"}不用特別煮`}`;
- m+=`\n\n▍冰箱庫存\n${inv("tea")}\n-\n${inv("foam")}`;
- const ords=st.orders.map(o=>{const its=o.items.filter(x=>x.cups||x.item).map(x=>`${x.cups}杯${x.item}`);
-  return (o.no||o.time||its.length)?`你訂${o.no} ${o.time} ${its.join("、")}`.trim():null}).filter(Boolean);
- if(ords.length)m+=`\n\n▍外送訂單備註\n${ords.join("\n")}`;
- if($("extra").value.trim())m+=`\n\n▍其他備註\n${$("extra").value.trim()}`;
- $("msg").textContent=m;
-}
-render();
-
-function problems(){
- const p=[];
- ["who","who2"].forEach(id=>$(id).classList.toggle("missing",!$(id).value));
- if(!$("who").value)p.push("收班人員");
- if(!$("who2").value)p.push("搭班");
- else if($("who2").value===$("who").value)p.push("搭班要選不同人");
- const revEmpty=Object.keys(REVN).filter(id=>{const v=$(id).value.replace(/[,\s$]/g,"");return v===""||isNaN(+v)});
- REV.forEach(id=>$(id).classList.toggle("missing",revEmpty.includes(id)));
- if(revEmpty.length)p.push("營收："+revEmpty.map(id=>REVN[id]).join("、"));
- const empty=invIds.filter(id=>num(id)===null);
- invIds.forEach(id=>$(id).classList.toggle("missing",empty.includes(id)));
- if(empty.length)p.push("庫存："+empty.map(id=>id.split("_")[2]).join("、"));
- return p;
-}
-$("copy").onclick=()=>{
- const p=problems();const ts=$("toast");
- if(p.length){
-  ts.className="toast err";ts.innerHTML=`<span>還沒填：${esc(p.join("；"))}</span><button type="button" class="go-fix" id="goFix">前往填寫 ↑</button>`;
-  $("goFix").onclick=goMissing;return}
- {const done=all.every(a=>$(a.id).checked);restartAnim(done?"cheerCat":"cheerSad");
-  const s=$(done?"cheerSnd":"sadSnd");try{s.currentTime=0;const pr=s.play();if(pr)pr.catch(()=>{})}catch(e){}}
- const t=$("msg").textContent;
- const okMsg=()=>{ts.className="toast";ts.textContent="已複製，到 LINE 群組貼上即可";celebrate()};
- const selectMsg=()=>{const r=document.createRange();r.selectNodeContents($("msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);ts.className="toast";ts.textContent="已選取文字，請長按複製";["cheerSnd","sadSnd"].forEach(id=>{try{$(id).pause()}catch(e){}})};
- let done=false;
- try{const ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;top:0;left:0;opacity:0;font-size:16px";
-  document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,t.length);done=document.execCommand("copy");ta.remove()}catch(e){}
- if(done){okMsg();return}
- if(navigator.clipboard)navigator.clipboard.writeText(t).then(okMsg).catch(selectMsg);else selectMsg();
-};
-// 動畫和聲音同步：每次都讓動畫從第一格重新開始
-const animBlob={};
-["cheerCat","cheerSad"].forEach(id=>{try{fetch($(id).getAttribute("src")).then(r=>r.ok?r.blob():null).then(b=>{if(b)animBlob[id]=b}).catch(()=>{})}catch(e){}});
-function restartAnim(id){
- const b=animBlob[id];if(!b)return;const el=$(id),old=el.dataset.url;
- try{const u=URL.createObjectURL(b);el.src=u;el.dataset.url=u;if(old)setTimeout(()=>URL.revokeObjectURL(old),2000)}catch(e){}
-}
-// 每播完一輪就讓動畫和聲音一起從頭開始，避免越播越不同步
-[["cheerSnd","cheerCat"],["sadSnd","cheerSad"]].forEach(([a,img])=>$(a).addEventListener("ended",()=>{
- if($("cheer").hidden)return;restartAnim(img);const s=$(a);try{s.currentTime=0;const pr=s.play();if(pr)pr.catch(()=>{})}catch(e){}
-}));
-const imgOK={};
-["cheerCat","cheerSad"].forEach(id=>{const ci=$(id);imgOK[id]=ci.complete?ci.naturalWidth>0:null;
- ci.addEventListener("load",()=>imgOK[id]=true);
- ci.addEventListener("error",()=>{imgOK[id]=false;if(!ci.hidden){ci.hidden=true;$("cheerMark").hidden=false}})});
-function celebrate(){
- const names=[$("who").value,$("who2").value].filter((v,i,a)=>v&&a.indexOf(v)===i).join("、");
- const left=all.filter(a=>!$(a.id).checked).length;
- $("cheerMark").textContent=left?"😭":"😊";
- const showCat=!left&&imgOK.cheerCat!==false,showSad=!!left&&imgOK.cheerSad!==false;
- $("cheerCat").hidden=!showCat;$("cheerSad").hidden=!showSad;$("cheerMark").hidden=showCat||showSad;
- $("cheerTitle").textContent=(names?names+"，\n":"")+(left?"還沒收完喔！":"收班完成，今天辛苦了！");
- $("cheerSub").textContent=left?`還有 ${left} 項沒勾，離開前記得再確認一次。`:"訊息已複製，貼到群組就完成交班囉。\n回家路上小心 🌙";
- $("cheer").classList.toggle("stormy",!!left);
- $("cheer").hidden=false;$("cheerClose").focus();
- left?storm():confetti();
-}
-function storm(){
- if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
- const old=document.getElementById("confetti");if(old)old.remove();
- const c=document.createElement("canvas");c.id="confetti";
- c.style.cssText="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30";
- document.body.appendChild(c);
- const ctx=c.getContext("2d"),dpr=Math.min(devicePixelRatio||1,2);
- const W=innerWidth,H=innerHeight;c.width=W*dpr;c.height=H*dpr;ctx.scale(dpr,dpr);
- const drops=Array.from({length:140},()=>({x:Math.random()*W*1.2,y:Math.random()*-H,l:12+Math.random()*14,v:10+Math.random()*8}));
- const flashes=[150,450];let bolt=null;
- const makeBolt=()=>{const pts=[];let x=W*(.25+Math.random()*.5),y=0;pts.push([x,y]);while(y<H*.6){x+=(Math.random()-.5)*50;y+=25+Math.random()*25;pts.push([x,y])}return pts};
- const start=performance.now();
- (function tick(now){
-  const el=now-start,fade=Math.max(0,1-Math.max(0,el-650)/350),inA=Math.min(1,el/150);
-  ctx.clearRect(0,0,W,H);ctx.globalAlpha=fade*inA;
-  const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,"rgba(30,36,48,.55)");g.addColorStop(1,"rgba(30,36,48,.15)");
-  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle="rgba(170,195,225,.75)";ctx.lineWidth=1.6;ctx.beginPath();
-  for(const d of drops){d.y+=d.v;d.x-=d.v*.25;if(d.y>H){d.y=-20;d.x=Math.random()*W*1.2}ctx.moveTo(d.x,d.y);ctx.lineTo(d.x+d.l*.25,d.y-d.l)}
-  ctx.stroke();
-  for(const f of flashes){const t=el-f;if(t>=0&&t<220){if(t<16||!bolt)bolt=makeBolt();
-   ctx.fillStyle=`rgba(255,255,255,${(t<80?.55:.25)*(1-t/220)})`;ctx.fillRect(0,0,W,H);
-   ctx.strokeStyle="rgba(255,240,170,.95)";ctx.lineWidth=3;ctx.beginPath();bolt.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke()}}
-  if(el<1000)requestAnimationFrame(tick);else c.remove();
- })(start);
-}
-function confetti(){
- if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
- const old=document.getElementById("confetti");if(old)old.remove();
- const c=document.createElement("canvas");c.id="confetti";
- c.style.cssText="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30";
- document.body.appendChild(c);
- const ctx=c.getContext("2d"),dpr=Math.min(devicePixelRatio||1,2);
- const W=innerWidth,H=innerHeight;c.width=W*dpr;c.height=H*dpr;ctx.scale(dpr,dpr);
- const cols=["#2f6b4a","#7cc39a","#f2b33d","#e8735a","#5aa9e6","#f5d0e0","#ffffff"];
- const P=[];
- const burst=(x,dir)=>{for(let i=0;i<70;i++){const a=(-90+dir*(15+Math.random()*35))*Math.PI/180,s=9+Math.random()*9;
-  P.push({x,y:H,vx:Math.cos(a)*s,vy:Math.sin(a)*s,w:6+Math.random()*6,h:8+Math.random()*8,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:cols[i%cols.length],t:0})}};
- burst(0,1);burst(W,-1);
- const start=performance.now();
- (function tick(now){
-  ctx.clearRect(0,0,W,H);
-  const el=now-start;
-  for(const p of P){p.vy+=.28;p.vx*=.99;p.vy=Math.min(p.vy,6);p.x+=p.vx+Math.sin((el+p.r*100)/200);p.y+=p.vy;p.r+=p.vr;
-   ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.globalAlpha=Math.max(0,1-Math.max(0,el-2600)/900);
-   ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2*Math.abs(Math.cos(p.r*2)),p.w,p.h*Math.abs(Math.cos(p.r*2))+1);ctx.restore()}
-  if(el<3500)requestAnimationFrame(tick);else c.remove();
- })(start);
-}
-const closeCheer=()=>{$("cheer").hidden=true;["cheerSnd","sadSnd"].forEach(id=>{try{$(id).pause()}catch(e){}})};
-$("cheerClose").onclick=closeCheer;
-$("cheer").onclick=e=>{if(e.target.id==="cheer")closeCheer()};
-function goMissing(){
- const el=document.querySelector("main .missing");if(!el)return;
- el.scrollIntoView({behavior:calm()?"auto":"smooth",block:"center"});
- setTimeout(()=>{try{el.focus({preventScroll:true})}catch(e){el.focus()}},calm()?0:400);
-}
-let armed=false;
-$("reset").onclick=()=>{
- const b=$("reset");
- if(!armed){armed=true;b.textContent="再按一次確認清空";setTimeout(()=>{armed=false;b.textContent="清空，開始新的一天"},3000);return}
- all.forEach(a=>{$(a.id).checked=false;delete st[a.id]});
- [...invIds,...REV].forEach(id=>{$(id).value="";delete st[id];$(id).classList.remove("missing")});
- ["extra","brewExtra"].forEach(id=>{$(id).value="";delete st[id]});
- delete st.dayType;st.orders=[];drawOrders();
- document.querySelectorAll(".grp").forEach(s=>s.classList.remove("show"));
- save();render();armed=false;b.textContent="清空，開始新的一天";$("toast").textContent="";
- scrollTo({top:0});
-};
-</script>
+    <footer style="text-align: center; margin: 30px 0; font-size: 0.8rem; color: #777;">
+        <p>© 2025 VRMacroPad · Created by rowdy-ff · Open Source on <a href="https://github.com/rowdy-ff/VRMacroPad">GitHub</a> · Windows only</p>
+    </footer>
 
 </body>
 </html>
